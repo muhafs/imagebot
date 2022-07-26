@@ -1,8 +1,10 @@
 import os
 import json
+from sqlite3 import Time
 import time
 import requests
 from download_image import download_image as dl
+from scraping_automation import scraping_automation as sc
 
 # set the url api
 API_URL = 'https://sindomall.com/api/get-post-product-data-by-region-and-date'
@@ -17,8 +19,9 @@ PARAM = {
 IMAGE_DIR = 'images'
 
 # download images
-dl(API_URL, IMAGE_DIR, PARAM)
-
+# dl(API_URL, IMAGE_DIR, PARAM)
+sc('Test', 250, 'Admin')
+time.sleep(5)
 exit()
 time.sleep(300)
 response = requests.post(API_URL, PARAM)  # Fetch the data from the API

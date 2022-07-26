@@ -78,7 +78,8 @@ def scraping_automation(title, price, seller):
     listing_desc = driver.find_element(
         By.XPATH, '//textarea[@name="field_description"]')
     # Enter the Description
-    listing_desc.send_keys('Test Description' + seller)  # ! Description
+    listing_desc.send_keys(
+        'Indoor plant\nEasy maintenance\n\nPlease chat to check its availability.\nThank you and happy shopping!\n\n' + seller)  # ! Description
 
     # Find the Delevery Cehckbox
     delevery_cehckbox = driver.find_element(
