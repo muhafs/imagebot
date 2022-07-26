@@ -31,7 +31,7 @@ if response.status_code == 200 and response.json()['api_status'] == 200:
     # Extract Total data
     total_data = response.json()['total_data']
     # Extract Posts Data
-    posts = response.json()['data'][0]
+    posts = response.json()['data']
 
     print(str(total_data) + ' posts has found, this will take a while, please wait...')
     for index, post in enumerate(posts):  # loop over each posts

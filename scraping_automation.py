@@ -143,5 +143,5 @@ def scraping_automation(title, price, seller):
         .click(list_submit)\
         .perform()
 
-    # Wait for 5 seconds until the post is listed
-    time.sleep(5)
+    # Wait for 10 seconds until the post is listed
+    time.sleep(10)
