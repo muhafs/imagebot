@@ -142,3 +142,6 @@ def scraping_automation(title, price, seller):
     ActionChains(driver)\
         .click(list_submit)\
         .perform()
+
+    # Wait for 5 seconds until the post is listed
+    time.sleep(5)

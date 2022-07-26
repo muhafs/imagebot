@@ -1,6 +1,5 @@
 import os
 import json
-from sqlite3 import Time
 import time
 import requests
 from download_image import download_image as dl
@@ -18,27 +17,33 @@ PARAM = {
 # set directory name to save the image
 IMAGE_DIR = 'images'
 
-# download images
+# # download images
 # dl(API_URL, IMAGE_DIR, PARAM)
-sc('Test', 250, 'Admin')
-time.sleep(5)
-exit()
-time.sleep(300)
-response = requests.post(API_URL, PARAM)  # Fetch the data from the API
+
+# # take a rest for 5 minutes
+# time.sleep(300)
+
+# Fetch the data from the API
+response = requests.post(API_URL, PARAM)
 
 # check response status
 if response.status_code == 200 and response.json()['api_status'] == 200:
-    data_count = response.json()['total_data']  # Extract total data
-    data_product = response.json()['data']  # Extract data product
+    # Extract Total data
+    total_data = response.json()['total_data']
+    # Extract Posts Data
+    posts = response.json()['data'][0]
 
-    print(str(data_count) + ' posts has found, this will take a while please wait...')
-    for index, product in enumerate(data_product):  # loop over each posts
-        if index % 100 == 0 and index != 0:  # when it reaches 100 posts, then let the machine rest for 5 minutes
-            sleep_minutes = 5  # set the sleep minutes
+    print(str(total_data) + ' posts has found, this will take a while, please wait...')
+    for index, post in enumerate(posts):  # loop over each posts
+        # when it reaches 100 posts, then let the machine rest for 5 minutes
+        if index % 100 == 0 and index != 0:
+            # set the sleep minutes
+            sleep_minutes = 5
             # print the rest message
             print(f'Let the machine rest for {sleep_minutes} minutes...')
-            time.sleep(sleep_minutes * 60)  # sleep for * minutes
+            # sleep for * minutes
+            time.sleep(sleep_minutes * 60)
 
-        print(index, '=', product['product_name'])
+        sc(post['product_name'], post['product_price'], post['product_seller'])
 else:
     print('data not found !')
