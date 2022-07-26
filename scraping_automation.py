@@ -5,13 +5,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-PATH = 'C:\Program Files (x86)\chromedriver.exe'
-driver = webdriver.Chrome(PATH)
-driver.maximize_window()
-driver.get('https://www.carousell.sg/')
-
 
 def scraping_automation(title, price, seller):
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get('https://www.carousell.sg/')
+
     # Find the Sell Button
     search_btn = driver.find_element(
         By.XPATH, '//a[@href="/sell/"]')
