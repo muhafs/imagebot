@@ -27,7 +27,7 @@ for i in range(1, 4):
     )
     # insert / upload files
     upload_btn.send_keys(
-        'C:/Users/62851/Desktop/Projects/imagebot/images/255766_' + str(i) + '.jpg')
+        'C:/Users/62851/Desktop/Projects/imagebot/images/255766_' + str(i) + '.jpg') #! Images
 
 # Find the Category Selection
 category_select = driver.find_element(
@@ -57,7 +57,7 @@ listing_title = WebDriverWait(driver, 10).until(
         (By.XPATH, '//input[@type="text" and @name="field_title" and @placeholder="Name your listing"]'))
 )
 # Enter the Listing Title
-listing_title.send_keys('Test Title')
+listing_title.send_keys('Test Title') #! Title
 
 # Find the New Conditional Checkbox
 plants_menu = driver.find_element(
@@ -71,13 +71,13 @@ ActionChains(driver)\
 listing_price = driver.find_element(
     By.XPATH, '//input[@type="number" and @name="field_price" and @placeholder="Price of your listing"]')
 # Enter the Price
-listing_price.send_keys(105)
+listing_price.send_keys(105) #! Price
 
 # Find the Description Bar
 listing_desc = driver.find_element(
     By.XPATH, '//textarea[@name="field_description"]')
 # Enter the Description
-listing_desc.send_keys('Test Description')
+listing_desc.send_keys('Test Description') #! Description
 
 # Find the Delevery Cehckbox
 delevery_cehckbox = driver.find_element(
@@ -131,6 +131,14 @@ delevery_day = driver.find_element(
 # Click on Delevery Day Selection
 ActionChains(driver)\
     .click(delevery_day)\
+    .perform()
+
+# Find the List Now Button
+list_submit = driver.find_element(
+    By.XPATH, '//*[@id="root"]/div/div[2]/div/div[2]/div[2]/div[2]/form/div/button')
+# Click on List Now Button
+ActionChains(driver)\
+    .click(list_submit)\
     .perform()
 
 
