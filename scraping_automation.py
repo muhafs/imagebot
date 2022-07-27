@@ -143,5 +143,11 @@ def scraping_automation(title, price, seller):
         .click(list_submit)\
         .perform()
 
+    # Wait until the Delevery Period Selection Appears then fetch the element
+    success_message = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located(
+            (By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/div[2]/div[1]/p'))
+    )
+
     # Wait for 10 seconds until the post is listed
     time.sleep(10)
