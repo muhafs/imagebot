@@ -44,6 +44,6 @@ if response.status_code == 200 and response.json()['api_status'] == 200:
             # sleep for * minutes
             time.sleep(sleep_minutes * 60)
 
-        sc(post['product_name'], post['product_price'], post['product_seller'])
+        sc(post['product_name'], int(post['product_price']), post['product_seller'])
 else:
     print('data not found !')
